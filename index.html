@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodotti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="icon" href="trolley.png">
+    <script src="js/script.js"> </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        .centrato {text-align: center;}
+    </style>
+</head>
+
+<body>
+<div class="container mt-5">
+    <h1 class="centrato">Prodotti</h1>
+    <button type="button" class="btn btn-primary" id="openModalBtn" onclick="openAddProductModal()">Aggiungi Prodotto</button>
+    <table class="table mt-3">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Marca</th>
+            <th scope="col">Prezzo</th>
+            <th scope="col">Azioni</th>
+        </tr>
+        </thead>
+        <tbody id="productTableBody">
+
+        </tbody>
+    </table>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalTitle"></h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="productForm">
+                    <input type="hidden" id="productId">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome Prodotto</label>
+                        <input type="text" class="form-control" id="nome" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca Prodotto</label>
+                        <input type="text" class="form-control" id="marca" readonly>
+                    </div>
+                    <div class="mb-3">
+                        <label for="prezzo" class="form-label">Prezzo Prodotto</label>
+                        <input type="number" class="form-control" id="prezzo" readonly>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal per Aggiungere Prodotto -->
+<div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addProductModalLabel">Aggiungi Prodotto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="addProductForm">
+                    <div class="mb-3">
+                        <label for="nome" class="form-label">Nome Prodotto</label>
+                        <input type="text" class="form-control" id="nomeProdotto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="marca" class="form-label">Marca Prodotto</label>
+                        <input type="text" class="form-control" id="marcaProdotto" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="prezzo" class="form-label">Prezzo Prodotto</label>
+                        <input type="number" class="form-control" id="prezzoProdotto" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Aggiungi</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal per Modificare Prodotto -->
+<div class="modal fade" id="editProductModal" tabindex="-1" aria-labelledby="editProductModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editProductModalLabel">Modifica Prodotto</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="editProductForm">
+                    <div class="mb-3">
+                        <label for="productNameInput" class="form-label">Nome Prodotto</label>
+                        <input type="text" class="form-control" id="productNameInput" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productBrandInput" class="form-label">Marca Prodotto</label>
+                        <input type="text" class="form-control" id="productBrandInput" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productPriceInput" class="form-label">Prezzo Prodotto</label>
+                        <input type="number" class="form-control" id="productPriceInput" required>
+                    </div>
+                        <button type="button" class="btn btn-primary" id="modifiche">Salva Modifiche</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
